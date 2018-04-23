@@ -1,16 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="SurveyCode">
 <head>
 	<meta charset="utf-8">
 	<title>SurveyCode | Casoba</title>
 	<link rel="stylesheet" href="../__assets/materialize/css/materialize.css">
 </head>
-<body>
+<body ng-controller="formSurvey as survey">
 	<div class="row">
 	<div class="col s6 offset-s3 card">
-	<form>
+	<form ng-submit="surveyFinished()">
 			<?php foreach($formulario as $elemento): ?>
 			<div class="row">
 				<div class="input-field col s12">			
