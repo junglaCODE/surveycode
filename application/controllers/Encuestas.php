@@ -16,7 +16,7 @@ class Encuestas extends CI_Controller {
 		$this->load->view('encuestas',$data);
 	}
 	
-	public function switchComponents($metadatos){
+	public function setComponent($metadatos){
 		$answer = '';
 		switch($metadatos->widget):
 		case 'select':			
