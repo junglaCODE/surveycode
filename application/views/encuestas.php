@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php endforeach;?>		
 	</div>
 	</div>
+<script type="text/javascript" src="../__assets/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../__assets/angular/angular.min.js"></script>
 <script type="text/javascript" src="../__assets/angular/angular-route.min.js"></script>
 <script type="text/javascript" src="../__assets/materialize/js/materialize.min.js"></script>
