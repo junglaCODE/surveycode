@@ -16,12 +16,26 @@ class Encuestas extends CI_Controller {
 		$this->load->view('encuestas',$data);
 	}
 	
-	public function switchComponents($type){
-		switch($type):
-		case 'select':
-			return '<select></select>';
+	public function switchComponents($metadatos){
+		$answer = '';
+		switch($metadatos->widget):
+		case 'select':			
+			foreach(json_decode($metadatos->answer,true) as $key => $value):
+				$answer.="<option value='{$key}'>{$value}</option>";
+			endforeach;
+			return "<select>{$answer}</select>
+					<label>{$metadatos->label}</label>";
 		default:
-			return "<input type='{$type}box'>";
+			foreach(json_decode($metadatos->answer,true) as $key => $value):					
+				$answer.= "<li>
+						<input type='{$metadatos->widget}' id='test{$key}'/>					
+						<label for='test{$key}'>{$value}</label>
+						</li>";
+			endforeach;
+			return "<div class='row'>
+						<label>{$metadatos->label}</label>
+					</div> 
+					<div class='row'><ul style='display:inline-flex;'>{$answer}</ul></div>";
 		endswitch;
 		
 	}

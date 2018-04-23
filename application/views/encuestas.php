@@ -9,12 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<div class="row">
-	<div class="col s12">
+	<div class="col s8 offset-s2">
 			<?php foreach($formulario as $componente): ?>
 			<div class="row">
-				<div class="input-field col s12">
-				<label> <?= $componente->label?> </label>
-				<?= $obj->switchComponents($componente->widget) ?>
+				<div class="input-field col s12">			
+				<?= $obj->switchComponents($componente)?>
 				</div>
 			</div>		
 			<?php endforeach;?>		
