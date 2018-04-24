@@ -23,13 +23,17 @@ class Encuestas extends CI_Controller {
 			foreach(json_decode($metadatos->answer,true) as $key => $value):
 				$answer.="<option value='{$key}'>{$value}</option>";
 			endforeach;
-			return "<select>{$answer}</select>
-					<label>{$metadatos->label}</label>";
+			return "<div class='row'>
+					<select ng-model='survey.form.{$metadatos->id}'>
+						{$answer}
+					</select>
+					<label>{$metadatos->label}</label>
+					</div>";
 		default:
 			foreach(json_decode($metadatos->answer,true) as $key => $value):					
 				$answer.= "<li>
-						<input type='{$metadatos->widget}' id='test{$key}'/>					
-						<label for='test{$key}'>{$value}</label>
+							<input type='{$metadatos->widget}' id='test{$key}'/>					
+							<label for='test{$key}'>{$value}</label>
 						</li>";
 			endforeach;
 			return "<div class='row'>
