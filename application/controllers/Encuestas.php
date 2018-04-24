@@ -11,10 +11,14 @@ class Encuestas extends CI_Controller {
 		$this->load->model('Results');	
 	}
 	
-	public function index(){		
-	    $data['formulario'] = $this->Forms->getTodo();
+	public function index(){			  
+		$this->load->view('template',null);
+	}
+	
+	public function loadSurvey(){
+		$data['formulario'] = $this->Forms->getTodo();
 		$data['obj'] = $this;
-		$this->load->view('encuestas',$data);
+		$this->load->view('encuesta',$data);
 	}
 	
 	public function setComponent($metadatos){

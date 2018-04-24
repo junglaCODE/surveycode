@@ -10,20 +10,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body ng-controller="_formSurvey_ as survey">
 	<div class="row">
-	<div class="col s6 offset-s3 card">
+	<div class="col s12 m6 offset-m3 card">
 	<form ng-submit="survey.finished(survey.form)">
-			<?php foreach($formulario as $elemento): ?>
-			<div class="row">
-				<div class="input-field col s12">			
-				<?= $obj->setComponent($elemento)?>
-				</div>
-			</div>		
-			<?php endforeach;?>		
-			<div class="row">
-				<div class="input-field col s12">	
-				<button type="submit" class="waves-effect waves-light btn-large col s12">Listo.</button>
-				</div>
-			</div>
+		<div ng-view></div>
 	</form>
 	</div>
 	</div>
