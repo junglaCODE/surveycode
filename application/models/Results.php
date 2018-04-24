@@ -1,17 +1,15 @@
 <?php
 
-class Forms extends CI_Model  {
+class Results extends CI_Model  {
 	
 	private $_table = null;
-	private	$pk_id;
-	public  $id_internal;
-	public  $id_label;
-	public  $label;
-	public  $id_widget;
-	public  $widget;
-	public  $answer;
-	public  $fk_survey; 
-		
+	private $pk_id ;
+	protected $started;
+	public  $fk_form;
+	public $result;
+	public  $provider;
+	public $lead;
+
 	public function __construct(){
 		parent::__construct();
 		$this->_table = strtolower(get_class($this));
@@ -21,7 +19,9 @@ class Forms extends CI_Model  {
 		$query = $this->db->get($this->_table);
 		return $query->result();
 	}
-			  
+	
+	public function insert($results){
+		$this->db->insert($this->_table,$results);	
+	}
 	
 }
-/*fin de la clase*/

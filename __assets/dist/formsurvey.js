@@ -8,6 +8,13 @@ function _formSurvey_($http) {
 	var vm = this;
 	
 	this.finished = function(survey){
-		console.log(survey);
+		$http.post('encuestas/saved',{
+			result : survey
+		})
+        .then(function (request) {
+			console.log(request);                           
+        }, function (request) {
+            console.log("Existe un problema de conexión");
+        });
 	}
 }

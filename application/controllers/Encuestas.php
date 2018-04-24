@@ -8,6 +8,7 @@ class Encuestas extends CI_Controller {
     public function __construct(){		
    		parent::__construct();
 		$this->load->model('Forms');	
+		$this->load->model('Results');	
 	}
 	
 	public function index(){		
@@ -34,7 +35,7 @@ class Encuestas extends CI_Controller {
 				$token = str_replace(' ','_',$value).'_'.$key;
 				$answer.= "<li>
 							<input type='{$metadatos->widget}' id='{$token}' name='{$metadatos->id}'
-							ng-model='survey.form.{$metadatos->id}' value='{$token}'/>					
+							ng-model='survey.form.{$metadatos->id}' value='{$key}'/>					
 							<label for='{$token}'>{$value}</label>
 						</li>";
 			endforeach;
@@ -44,5 +45,21 @@ class Encuestas extends CI_Controller {
 					<div class='row'><ul style='display:inline-flex;'>{$answer}</ul></div>";
 		endswitch;
 		
+	}
+	
+	private function _associateFields($data){
+		$this->Results->fk_form = 1;
+		$this->Results->result = json_encode($data->result);
+		$this->Results->provider = $data->provider;
+		$this->Results->lead = $data->lead;
+		return $this->Results;
+	}
+	
+	public function saved(){
+		$request =  file_get_contents("php://input");		
+		$data = json_decode($request);
+		$data->provider = 'undefined';
+		$data->lead = 'monolinux@smcmx.com.mx';
+		$this->Results->insert(self::_associateFields($data));
 	}
 }
