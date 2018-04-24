@@ -8,8 +8,8 @@ angular
     .when("/", {
         templateUrl : "index.php/encuestas/loadSurvey"
     })
-    .when("/red", {
-        templateUrl : "red.htm"
+    .when("/gracias", {
+        templateUrl : "index.php/encuestas/finallySurvey"
     })
 });
 
@@ -18,7 +18,7 @@ function _formSurvey_($http) {
 	
 	this.finished = function(survey){
 		$http.post('encuestas/saved',{
-			result : survey
+			_survey : survey
 		})
         .then(function (request) {
 			console.log(request);                           

@@ -7,6 +7,14 @@
 <?php endforeach;?>		
 	<div class="row">
 		<div class="input-field col s12">	
-			<button type="submit" class="waves-effect waves-light btn-large col s12">Listo.</button>
+			<a href="#!gracias" class="waves-effect waves-light btn-large col s12">
+				Continuar
+			</a>
 		</div>
 	</div>
+
+<script>
+ $(document).ready(function() {
+    $('select').material_select();
+  });          
+</script>

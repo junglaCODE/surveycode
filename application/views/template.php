@@ -22,10 +22,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript" src="../__assets/materialize/js/materialize.min.js"></script>
 <script type="text/javascript" src="../__assets/libs/checklist-model.js"></script>
 <script type="text/javascript" src="../__assets/dist/formsurvey.js"></script>
-<script>
- $(document).ready(function() {
-    $('select').material_select();
-  });          
-</script>
 </body>
 </html>

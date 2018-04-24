@@ -18,7 +18,11 @@ class Encuestas extends CI_Controller {
 	public function loadSurvey(){
 		$data['formulario'] = $this->Forms->getTodo();
 		$data['obj'] = $this;
-		$this->load->view('encuesta',$data);
+		$this->load->view('survey',$data);
+	}
+	
+	public function finallySurvey(){
+		$this->load->view('goodbye',null);
 	}
 	
 	public function setComponent($metadatos){
@@ -29,7 +33,7 @@ class Encuestas extends CI_Controller {
 				$answer.="<option value='{$key}'>{$value}</option>";
 			endforeach;
 			return "<div class='row'>
-					<select ng-model='survey.form.{$metadatos->id}'>
+					<select ng-model='survey.form.results.{$metadatos->id}'>
 						{$answer}
 					</select>
 					<label>{$metadatos->label}</label>
@@ -39,7 +43,7 @@ class Encuestas extends CI_Controller {
 				$token = str_replace(' ','_',$value).'_'.$key;
 				$answer.= "<li>
 							<input type='{$metadatos->widget}' id='{$token}' name='{$metadatos->id}'
-							ng-model='survey.form.{$metadatos->id}' value='{$key}'/>					
+							ng-model='survey.form.results.{$metadatos->id}' value='{$key}'/>					
 							<label for='{$token}'>{$value}</label>
 						</li>";
 			endforeach;
@@ -53,17 +57,15 @@ class Encuestas extends CI_Controller {
 	
 	private function _associateFields($data){
 		$this->Results->fk_form = 1;
-		$this->Results->result = json_encode($data->result);
-		$this->Results->provider = $data->provider;
-		$this->Results->lead = $data->lead;
+		$this->Results->result = json_encode($data->results);
+		$this->Results->provider = 'undefined';
+		$this->Results->lead = json_encode($data->lead);
 		return $this->Results;
 	}
 	
 	public function saved(){
-		$request =  file_get_contents("php://input");		
-		$data = json_decode($request);
-		$data->provider = 'undefined';
-		$data->lead = 'monolinux@smcmx.com.mx';
+		$request =  file_get_contents("php://input");
+		$data = json_decode($request)->_survey;
 		$this->Results->insert(self::_associateFields($data));
 	}
 }
