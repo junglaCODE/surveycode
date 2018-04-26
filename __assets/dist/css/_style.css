@@ -1,0 +1,16 @@
+.answer{
+	margin-top: 11px;
+	background: #e1e1e166;
+}
+
+@media only screen and (min-width: 300px){
+	.lineal{
+		display : block;
+	}
+}
+
+@media only screen and (min-width: 1024px){
+	.lineal{
+		display : inline-flex;
+	}
+}

@@ -33,7 +33,7 @@ class Encuestas extends CI_Controller {
 			foreach(json_decode($metadatos->answer,true) as $key => $value):
 				$answer.="<option value='{$key}'>{$value}</option>";
 			endforeach;
-			return "<div class='row grey lighten-4'>
+			return "<div class='row answer'>
 						<select ng-model='survey.form.results.{$metadatos->id}'>
 							{$answer}
 						</select>
@@ -50,8 +50,8 @@ class Encuestas extends CI_Controller {
 			endforeach;
 			return "<div class='row'>
 						<label>{$metadatos->label}</label>
-					</div> 
-					<div class='row grey lighten-4'><ul style='display:inline-flex;'>{$answer}</ul></div>";
+					</div><div class='row'></div>
+					<div class='row answer'><ul class='lineal'>{$answer}</ul></div>";
 		endswitch;
 		
 	}
