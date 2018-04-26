@@ -28,15 +28,16 @@ class Encuestas extends CI_Controller {
 	public function setComponent($metadatos){
 		$answer = '';
 		switch($metadatos->widget):
-		case 'select':			
+		case 'select':
+			$answer = '<option value=\'\'> Elije alguna opción</option>';
 			foreach(json_decode($metadatos->answer,true) as $key => $value):
 				$answer.="<option value='{$key}'>{$value}</option>";
 			endforeach;
-			return "<div class='row'>
-					<select ng-model='survey.form.results.{$metadatos->id}'>
-						{$answer}
-					</select>
-					<label>{$metadatos->label}</label>
+			return "<div class='row grey lighten-4'>
+						<select ng-model='survey.form.results.{$metadatos->id}'>
+							{$answer}
+						</select>
+						<label>{$metadatos->label}</label>
 					</div>";
 		default:
 			foreach(json_decode($metadatos->answer,true) as $key => $value):
@@ -50,7 +51,7 @@ class Encuestas extends CI_Controller {
 			return "<div class='row'>
 						<label>{$metadatos->label}</label>
 					</div> 
-					<div class='row'><ul style='display:inline-flex;'>{$answer}</ul></div>";
+					<div class='row grey lighten-4'><ul style='display:inline-flex;'>{$answer}</ul></div>";
 		endswitch;
 		
 	}
