@@ -12,6 +12,8 @@
 </div>
 <div class="row">
 	<div class="input-field col s12">	
-		<button type="submit" class="waves-effect waves-light btn-large col s12">Listo. He finalizado</button>
+		<button type="submit" class="waves-effect waves-light btn-large col s12">
+			Listo. He finalizado
+		</button>
 	</div>
 </div>

@@ -3,14 +3,31 @@
 	background: #e1e1e166;
 }
 
+label.question{
+	font-size: 1.2em !important;
+	font-weight: bold;
+}
+
+ul.options li{
+	padding-right : 11px !important;
+}
+
+ul.options li label{
+	color: black !important;
+}
+
 @media only screen and (min-width: 300px){
-	.lineal{
+	.options{
 		display : block;
+	}
+	.answer{
+		margin-top: 40px;
 	}
 }
 
 @media only screen and (min-width: 1024px){
-	.lineal{
+	.options{
 		display : inline-flex;
 	}
 }
+

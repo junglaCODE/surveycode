@@ -37,7 +37,7 @@ class Encuestas extends CI_Controller {
 						<select ng-model='survey.form.results.{$metadatos->id}'>
 							{$answer}
 						</select>
-						<label>{$metadatos->label}</label>
+						<label for='{$metadatos->id}' class='question'>{$metadatos->label}</label>
 					</div>";
 		default:
 			foreach(json_decode($metadatos->answer,true) as $key => $value):
@@ -49,11 +49,19 @@ class Encuestas extends CI_Controller {
 						</li>";
 			endforeach;
 			return "<div class='row'>
-						<label>{$metadatos->label}</label>
+						<label for='{$metadatos->id}' class='question'>{$metadatos->label}</label>
 					</div><div class='row'></div>
-					<div class='row answer'><ul class='lineal'>{$answer}</ul></div>";
+					<div class='row answer'><ul class='options'>{$answer}</ul></div>";
 		endswitch;
 		
+	}
+	
+	public function validateForm($metadatos){
+		$ng_validate = array();
+		foreach($metadatos as $parameter):
+			$ng_validate[] =  '!survey.form.results.'.$parameter->id;
+		endforeach;
+		return implode(' || ',$ng_validate);
 	}
 	
 	private function _associateFields($data){

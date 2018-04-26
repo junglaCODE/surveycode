@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body ng-controller="_formSurvey_ as survey">
 	<div class="row">
-		<div class="col s12 m8 l6 offset-m2 offset-l3 card">
+		<div class="col s12 m8 offset-m2  card">
 			<form ng-submit="survey.finished(survey.form)">
 				<div ng-view></div>
 			</form>

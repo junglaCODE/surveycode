@@ -7,8 +7,9 @@
 <?php endforeach;?>		
 	<div class="row">
 		<div class="input-field col s12">	
-			<a href="#!gracias" class="waves-effect waves-light btn-large col s12">
-				Continuar
+			<a href="#!gracias" class="waves-effect waves-light btn-large col s12"
+				ng-disabled ="<?= $obj->validateForm($formulario) ?>">
+			Continuar 
 			</a>
 		</div>
 	</div>

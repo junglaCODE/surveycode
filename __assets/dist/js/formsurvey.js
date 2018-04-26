@@ -21,7 +21,7 @@ function _formSurvey_($http) {
 			_survey : survey
 		})
         .then(function (request) {
-			console.log(request);   
+			console.log(request,'Transporting dataform to db');   
 			_reset(survey);
         }, function (request) {
             console.log("Existe un problema de conexión");
@@ -29,7 +29,7 @@ function _formSurvey_($http) {
 	}
 	
 	function _reset(form){
-		form = {};
+		vm.form = null;
 		console.log('Thank You, Finished survey satisfactorily. surveyCODE')
 		location.href = "#!"; 
 	}
