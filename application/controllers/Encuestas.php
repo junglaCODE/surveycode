@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Encuestas extends CI_Controller {
 
-	const VERSION = '0.1.1';
+	const VERSION = '0.1.2';
 	
     public function __construct(){		
    		parent::__construct();

@@ -21,9 +21,16 @@ function _formSurvey_($http) {
 			_survey : survey
 		})
         .then(function (request) {
-			console.log(request);                           
+			console.log(request);   
+			_reset(survey);
         }, function (request) {
             console.log("Existe un problema de conexión");
         });
+	}
+	
+	function _reset(form){
+		form = {};
+		console.log('Thank You, Finished survey satisfactorily. surveyCODE')
+		location.href = "#!"; 
 	}
 }
