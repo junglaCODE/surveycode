@@ -22,6 +22,12 @@ class Forms extends CI_Model  {
 		return $query->result();
 	}
 			  
-	
+	public function getInfoColumns($col,$where){
+		$this->db->select($col);
+		$this->db->from($this->_table);	
+		$this->db->where($where->field, $where->value);		
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 /*fin de la clase*/
