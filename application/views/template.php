@@ -7,8 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<title>SurveyCode | Casoba</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../__assets/materialize/css/materialize.css">
-<link rel="stylesheet" href="../__assets/dist/css/_style.css">
+<link rel="stylesheet" href="__assets/materialize/css/materialize.css">
+<link rel="stylesheet" href="__assets/dist/css/_style.css">
 </head>
 <body ng-controller="_formSurvey_ as survey">
 <nav>
@@ -27,14 +27,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</form>
 		</div>
 	</div>
-<script type="text/javascript" src="../__assets/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../__assets/angular/angular.min.js"></script>
-<script type="text/javascript" src="../__assets/angular/angular-route.min.js"></script>
-<script type="text/javascript" src="../__assets/materialize/js/materialize.min.js"></script>
-<script type="text/javascript" src="../__assets/materialize/js/materialize.min.js"></script>
-<script type="text/javascript" src="../__assets/angular-chart/Chart.min.js"></script>
-<script type="text/javascript" src="../__assets/angular-chart/angular-chart.min.js"></script>
-<script type="text/javascript" src="../__assets/thirdparty/checklist-model.js"></script>
-<script type="text/javascript" src="../__assets/dist/js/formsurvey.js"></script>
+<script type="text/javascript" src="__assets/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="__assets/angular/angular.min.js"></script>
+<script type="text/javascript" src="__assets/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="__assets/materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="__assets/materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="__assets/angular-chart/Chart.min.js"></script>
+<script type="text/javascript" src="__assets/angular-chart/angular-chart.min.js"></script>
+<script type="text/javascript" src="__assets/thirdparty/checklist-model.js"></script>
+<script type="text/javascript" src="__assets/dist/js/formsurvey.js"></script>
 </body>
 </html>

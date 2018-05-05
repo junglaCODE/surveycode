@@ -76,8 +76,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> 'mysql:host=127.0.0.1;dbname=_surveycode_',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'username' => 'frankvn5to',
+	'password' => 'pastillas',
 	'database' => '_surveycode_',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',

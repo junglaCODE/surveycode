@@ -24,11 +24,11 @@ function _formSurvey_($http) {
 	var grpCpt = null;
 
 	this.finished = function(survey){
-		$http.post('encuestas/saved',{
+		$http.post('index.php/encuestas/saved',{
 			_survey : survey
 		})
         .then(function (request) {
-			console.log(request,'Transporting dataform to db');   
+			console.log(request,'index.php/Transporting dataform to db');   
 			_reset(survey);
         }, function (request) {
             console.log("Existe un problema de conexión");
@@ -42,7 +42,7 @@ function _formSurvey_($http) {
 	}
 
 	this.loadGraphicDays = function(){
-		$http.post('estadisticas/statisticsPerDay',{
+		$http.post('index.php/estadisticas/statisticsPerDay',{
 		})
         .then(function (request) {
 			console.log(request,'loading graph of surveys made');   
@@ -53,7 +53,7 @@ function _formSurvey_($http) {
 	}
 
 	this.loadGraphicTrends = function(){
-		$http.post('estadisticas/ourTrends',{
+		$http.post('index.php/estadisticas/ourTrends',{
 		})
         .then(function (request) {
 			console.log(request,'loading graph of surveys made');   
@@ -64,7 +64,7 @@ function _formSurvey_($http) {
 	}
 
 	this.loadGraphicCompetitors = function(){
-		$http.post('estadisticas/ourcompetitors',{
+		$http.post('index.php/estadisticas/ourcompetitors',{
 		})
         .then(function (request) {
 			console.log(request,'loading graph of surveys made');   
