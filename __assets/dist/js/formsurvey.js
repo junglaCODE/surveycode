@@ -75,8 +75,8 @@ function _formSurvey_($http) {
 	}
 
 	this.loadGraphicDays();
-	this.loadGraphicTrends();
-	this.loadGraphicCompetitors();
+	//this.loadGraphicTrends();
+	//this.loadGraphicCompetitors();
 
 
 }

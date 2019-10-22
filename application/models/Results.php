@@ -38,10 +38,17 @@ class Results extends CI_Model  {
 		return $query->result();
 	}
 	
+	public function getInfoAnswerJson($key){
+		$this->db->select("JSON_EXTRACT(answer,'$.{$key}') as opcion");
+		$this->db->from('forms');
+		$query = $this->db->get();
+		$data = $query->result();	
+		return $data[0]->opcion;
+	}
 	public function getTotalPerDay(){
-		$this->db->select('DATE(started) AS day ,count(pk_id) AS total');
+		$this->db->select("JSON_EXTRACT(result,'$.mascota') AS day ,count(pk_id) AS total");
 		$this->db->from($this->_table);
-		$this->db->group_by('DATE(started)');
+		$this->db->group_by('result');
 		$query = $this->db->get();
 		return $query->result();
 	}

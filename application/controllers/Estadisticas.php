@@ -21,56 +21,11 @@ class Estadisticas extends CI_Controller {
 		$this->load->view('indicators',$data);
 	}
 	
-	
-	public function ourLeads(){		
-		$_leads = array();
-		foreach( $this->Results->getInfoColumns('lead') as $key => $value):
-			if(!empty($value->lead) && !is_null($value->lead))
-				$_leads[] = json_decode($value->lead,TRUE);
-		endforeach;
-		var_dump($_leads);
-	}
-
-	public function ourTrends($point = 'sexo'){
-		$_graphic = array();
-		$_trend = array();
-		foreach($this->Results->getInfoColumns('result') as $values):
-			$cols = json_decode($values->result,TRUE); 
-			$_trend[] = $cols[$point];
-		endforeach;
-		@$where->field = 'id';
-		@$where->value = $point;
-		$_labels = $this->Forms->getInfoColumns('answer',$where);
-		$_labels = json_decode($_labels[0]->answer,TRUE);
-		foreach(array_count_values($_trend) as $key => $value):
-			$_graphic['labels'][] = $_labels[$key];
-			$_graphic['data'][] = $value; 
-		endforeach;
-		echo json_encode($_graphic);
-	}
-
-	public function ourcompetitors($point = 'marca'){
-		$_graphic = array();
-		$_trend = array();
-		foreach($this->Results->getInfoColumns('result') as $values):
-			$cols = json_decode($values->result,TRUE); 
-			$_trend[] = $cols[$point];
-		endforeach;
-		@$where->field = 'id';
-		@$where->value = $point;
-		$_labels = $this->Forms->getInfoColumns('answer',$where);
-		$_labels = json_decode($_labels[0]->answer,TRUE);
-		foreach(array_count_values($_trend) as $key => $value):
-			$_graphic['labels'][] = $_labels[$key];
-			$_graphic['data'][] = $value; 
-		endforeach;
-		echo json_encode($_graphic);
-	}
 
 	public function statisticsPerDay(){
-		$_graphic = array();		
+		$_graphic = array();	
 		foreach($this->Results->getTotalPerDay() as $values ):
-			$_graphic['labels'][] = $values->day;
+			$_graphic['labels'][] = $this->Results->getInfoAnswerJson($values->day);
 			$_graphic['data'][] = (int) $values->total;
 		endforeach;
 		echo json_encode($_graphic);

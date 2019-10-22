@@ -74,11 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=127.0.0.1;dbname=_surveycode_',
+	'dsn'	=> 'mysql:host=127.0.0.1;dbname=junglaco_survey',
 	'hostname' => 'localhost',
-	'username' => 'frankvn5to',
-	'password' => 'pastillas',
-	'database' => '_surveycode_',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'junglaco_survey',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
