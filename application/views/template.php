@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en" ng-app="SurveyCode">
 <head>
 	<meta charset="utf-8">
-	<title>SurveyCode | Casoba</title>
+	<title>SurveyCode | junglaCODE</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="__assets/materialize/css/materialize.css">
 <link rel="stylesheet" href="__assets/dist/css/_style.css">
